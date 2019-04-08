@@ -28,15 +28,15 @@
         <div class="navRight item">
           <span v-show="pathName == 'forum' || pathName == 'videoList'">
             <a href="/my/">
-              <img class="myicon" src="../../assets/img/my.png" alt="">
+              <img class="myicon" src="../../assets/img/my.png" alt="我的">
             </a>
               <span>&nbsp;&nbsp;</span>
             <span class="menuImg" @click.stop="menuBl = !menuBl">
-              <img class="menuicon" src="../../assets/img/menu.png" alt="">
+              <img class="menuicon" src="../../assets/img/menu.png" alt="菜单">
             </span>
           </span>
-          <a href="/find/" v-show="pathName === 'found'">首页
-            <img class="searchIcon" src="../../assets/img/search.png" alt="">
+          <a href="/find/" v-show="pathName === 'found'">
+            <img class="searchIcon" src="../../assets/img/search.png" alt="搜索">
           </a>
         </div>
       </div>
@@ -121,9 +121,9 @@ export default {
         padding: 0 0.2rem;
         margin: 0 auto;
         margin-top: .09rem;
-        // -moz-box-shadow:0px -0.1rem 0px #e10030;
-        // -webkit-box-shadow:0px -0.1rem 0px #e10030;
-        // box-shadow:0px -0.1rem 0px #e10030;
+        -moz-box-shadow:0px -0.1rem 0px #e10030;
+        -webkit-box-shadow:0px -0.1rem 0px #e10030;
+        box-shadow:0px -0.1rem 0px #e10030;
       }
       .navLeft {
         .goBack {

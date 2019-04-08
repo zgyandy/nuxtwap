@@ -12,6 +12,7 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' },
+      { 'http-equiv': 'cache-control', content: 'no-cache' },
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
@@ -38,6 +39,14 @@ module.exports = {
     {
       src: "~/plugins/axios.js",
       ssr: true
+    },
+    {
+      src: '~/plugins/mint-ui.js',
+      ssr: true
+    },
+    {
+      src: '~/plugins/vue-meta.js',
+      ssr: true
     }
   ],
 
@@ -47,6 +56,7 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
@@ -55,12 +65,15 @@ module.exports = {
     proxy: true,
     prefix: '/api/',
     credentials: true,
+    debug: process.env._ENV == "production" ? false : true, // 开发模式开启debug模式
+    // baseUrl: process.env._ENV == "production" ? "http://m.zhizuobiao.com/api" : 'http://m.testiotek.com/api',
+    withCredentials: true
     // See https://github.com/nuxt-community/axios-module#options
   },
   proxy: {
     // 代理
     '/api/': {
-      target: 'http://m.zhizuobiao.com/api',
+      target: process.env._ENV == 'production' ? "http://m.zhizuobiao.com/api" : 'http://m.testiotek.com/api',
       pathRewrite: {
         '^/api/': '/',
         changeOrigin: true
@@ -77,5 +90,8 @@ module.exports = {
     vendor: ['axios'],
     extend(config, ctx) {
     }
+  },
+  server: {
+    // port: 9000
   }
 }

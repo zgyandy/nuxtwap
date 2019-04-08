@@ -1,3 +1,4 @@
+import qs from 'qs';
 export default function ({$axios, redirect}) {
   let axios = $axios
   // 基本配置
@@ -5,12 +6,20 @@ export default function ({$axios, redirect}) {
 
   // 请求回调
   axios.onRequest(config => {
-    // console.log(config)
-    // console.log('Making request to ' + config.url)
+    if (config.data) {
+      config.data = qs.stringify(config.data, {
+        allowDots: true //Option allowDots can be used to enable dot notation
+      })
+    }
+    return config.data
   })
   // 返回回调
   axios.onResponse(res => {
-    // console.log(res)
+    if (res.data.code == 200) {
+      return res.data.data
+    } else {
+      return res
+    }
   })
   // 错误回调
   axios.onError(error => {
