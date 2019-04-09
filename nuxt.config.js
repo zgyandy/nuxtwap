@@ -42,10 +42,6 @@ module.exports = {
     {
       src: '~/plugins/mint-ui.js',
       ssr: true
-    },
-    {
-      src: '~/plugins/vue-meta.js',
-      ssr: true
     }
   ],
 

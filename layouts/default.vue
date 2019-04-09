@@ -2,10 +2,12 @@
   <div>
     <Header />
     <nuxt />
+    <FootBar></FootBar>
   </div>
 </template>
 <script>
 import Header from '@/components/common/header.vue'
+import FootBar from '../components/common/footBar'
 export default {
   beforeMount () {
     this.remFn ()
@@ -52,7 +54,7 @@ export default {
     }
   },
   components: {
-    Header
+    Header, FootBar
   }
 }
 </script>

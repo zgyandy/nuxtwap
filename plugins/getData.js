@@ -1,34 +1,3 @@
-// import axios from 'axios'
-// import qs from 'qs'
-// let options = {
-//   baseURL: process.env.NODE_ENV === 'development' ? "http://m.testiotek.com/api/" : 'http://m.zhizuobiao.com/api/',
-//   timeout: 8000,
-//   headers: {
-//   'X-Requested-With': 'XMLHttpRequest',
-//   'Content-Type': 'application/json; charset=UTF-8'
-// 	}
-// }
-// // 请求回调
-// // axios.onRequest(config => {
-// //   if (config.data) {
-// //     config.data = qs.stringify(config.data, {
-// //       allowDots: true //Option allowDots can be used to enable dot notation
-// //     })
-// //   }
-// //   return config.data
-// // })
-// export default axios.create(options).interceptors.request.use(function (config) {
-//   // 在发送请求之前做些什么
-//   if(config.type == 'formData' || config.method != 'post'){
-//     return config
-//   }
-//   config.data = qs.stringify(config.data)
-//   return config;
-// }, function (error) {
-//   // 对请求错误做些什么
-//   return Promise.reject(error);
-// });
-
 import promise from 'es6-promise';
 import axios from "axios";
 import qs from 'qs'
