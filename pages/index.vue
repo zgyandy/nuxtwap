@@ -14,8 +14,8 @@ export default {
   async asyncData () {
     let { data } = await axios.post('video/indexAdvertiement')
     return {
-      banner : data.carousel,
-      title : data.carousel[0]['title']
+      banner : data.data.carousel,
+      title : data.data.carousel[0]['title']
     }
   },
   data () {
