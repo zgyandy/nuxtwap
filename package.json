@@ -12,7 +12,8 @@
     "test": "nuxt-jest-puppeteer"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/axios": "^5.4.1",
+    "@nuxtjs/proxy": "^1.3.3",
     "cross-env": "^5.2.0",
     "express": "^4.16.4",
     "mint-ui": "^2.2.13",
@@ -38,11 +39,5 @@
     "presets": [
       "env"
     ]
-  },
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": 80
-    }
   }
 }

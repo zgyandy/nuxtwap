@@ -9,7 +9,15 @@
 
 <script>
 import Banner from '../components/common/banner.vue'
+import axios from '~/plugins/getData'
 export default {
+  async asyncData () {
+    let { data } = await axios.post('video/indexAdvertiement')
+    return {
+      banner = data.carousel,
+      title = data.carousel[0]['title']
+    }
+  },
   data () {
     return {
       banner: [],
@@ -30,12 +38,7 @@ export default {
     }
   },
   created () {
-    this.$axios.post('video/indexAdvertiement').then(res => {
-      this.banner = res.carousel
-      this.title = this.banner[1]['title']
-    }).catch(err => {
-      throw err
-    })
+
   },
   methods: {
   },
