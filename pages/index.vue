@@ -9,13 +9,13 @@
 
 <script>
 import Banner from '../components/common/banner.vue'
-import axios from '~/plugins/getData'
+import {post, get} from '~/plugins/getData'
 export default {
   async asyncData () {
-    let { data } = await axios.post('video/indexAdvertiement')
+    let { data } = await post('video/indexAdvertiement')
     return {
-      banner : data.data.carousel,
-      title : data.data.carousel[0]['title']
+      banner : data.carousel,
+      title : data.carousel[0]['title']
     }
   },
   data () {
@@ -24,19 +24,19 @@ export default {
       title: '名侦探柯南'
     }
   },
-  // head () {
-  //   return {
-  //     title: this.title
-  //   }
-  // },
-  metaInfo: {
-    title: 'title', // set a title
-    titleTemplate: '%s', // title is now "My Example App - Yay!"
-    htmlAttrs: {
-      lang: 'en',
-      amp: undefined // "amp" has no value
+  head () {
+    return {
+      title: this.title
     }
   },
+  // metaInfo: {
+  //   title: 'title', // set a title
+  //   titleTemplate: '%s', // title is now "My Example App - Yay!"
+  //   htmlAttrs: {
+  //     lang: 'en',
+  //     amp: undefined // "amp" has no value
+  //   }
+  // },
   created () {
 
   },
