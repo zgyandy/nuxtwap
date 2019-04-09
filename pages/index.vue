@@ -15,18 +15,32 @@ export default {
     let { data } = await post('video/indexAdvertiement')
     return {
       banner : data.carousel,
-      title : data.carousel[0]['title']
+      title : data.carousel[0]['title'],
+      keywords: data.cutScreen[0]['title'],
+      description: data.focus[0]['title'],
     }
   },
   data () {
     return {
       banner: [],
-      title: '名侦探柯南'
+      title: '名侦探柯南',
+      keywords: '',
+      description: ''
     }
   },
   head () {
     return {
-      title: this.title
+      title: this.title,
+      meta: [
+        {
+        name: 'keywords',
+        content: this.keywords
+      },
+      {
+        name: 'description',
+        content: this.description
+      }
+      ]
     }
   },
   // metaInfo: {
