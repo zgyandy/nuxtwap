@@ -1,6 +1,6 @@
 import axios from 'axios'
 let options = {}
-options.baseURL = "http://m.testiotek.com/api/"
+options.baseURL = "http://m.zhizuobiao.com/api/"
 // 请求回调
 // axios.onRequest(config => {
 //   if (config.data) {
