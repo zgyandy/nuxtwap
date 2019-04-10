@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-    "build": "nuxt build && npm start",
+    "build": "nuxt build",
     "start": "PORT=3002 nuxt start",
     "generate": "nuxt generate",
     "test": "nuxt-jest-puppeteer"
