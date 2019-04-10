@@ -38,7 +38,7 @@ export default {
     }
   },
   mounted () {
-    post('/video/indexVideo').then((res) => {
+    post('http://m.zhizuobiao.com/api/video/indexVideo').then((res) => {
       this.lectureArr = res.data
       this.description = res.data['description']
     }).catch((err) => {
