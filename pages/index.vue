@@ -38,12 +38,9 @@ export default {
     }
   },
   beforeCreate () {
-    this.$axios.post({
-      url: '/video/indexVideo',
-    }).then((res) => {
-      this.lectureArr = res
-      this.description = res[0]['description']
-      console.log(window)
+    post('/video/indexVideo').then((res) => {
+      this.lectureArr = res.data
+      this.description = res.data['description']
     }).catch((err) => {
       throw err
     });
