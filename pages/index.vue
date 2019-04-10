@@ -4,11 +4,20 @@
     <div class="banner">
       <Banner :banner="banner"></Banner>
     </div>
+    <linkList></linkList>
+    <Leature :lecture="lectureArr"></Leature>
   </div>
 </template>
 
 <script>
-import Banner from '../components/common/banner.vue'
+import Banner from '~/components/common/banner.vue'
+import linkList from '~/components/common/linkList'
+// import bulletin from '~/components/common/bulletin'
+import CheerStation from '~/components/cheerstation/cheer'
+import Leature from '~/components/lecture/lecture'
+// import Article from '~/components/article/article'
+import loadMore from '~/components/common/loadMore'
+import listTitle from '~/components/common/listTitle'
 import {post, get} from '~/plugins/getData'
 export default {
   async asyncData () {
@@ -17,7 +26,6 @@ export default {
       banner : data.carousel,
       title : data.carousel[0]['title'],
       keywords: data.cutScreen[0]['title'],
-      description: data.focus[0]['title'],
     }
   },
   data () {
@@ -25,8 +33,18 @@ export default {
       banner: [],
       title: '名侦探柯南',
       keywords: '',
-      description: ''
+      description: '',
+      lectureArr: []
     }
+  },
+  beforeCreate () {
+    this.$axios.post('video/indexVideo').then((res) => {
+      this.lectureArr = res
+      this.description = res[0]['description']
+      console.log(window)
+    }).catch((err) => {
+      throw err
+    });
   },
   head () {
     return {
@@ -49,7 +67,7 @@ export default {
   methods: {
   },
   components: {
-    Banner
+    Banner, linkList, Leature
   }
 }
 </script>
