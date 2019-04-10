@@ -38,7 +38,9 @@ export default {
     }
   },
   beforeCreate () {
-    this.$axios.post('video/indexVideo').then((res) => {
+    this.$axios.post({
+      url: '/video/indexVideo',
+    }).then((res) => {
       this.lectureArr = res
       this.description = res[0]['description']
       console.log(window)
