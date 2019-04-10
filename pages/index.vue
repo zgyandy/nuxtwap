@@ -37,7 +37,7 @@ export default {
       lectureArr: []
     }
   },
-  beforeCreate () {
+  mounted () {
     post('/video/indexVideo').then((res) => {
       this.lectureArr = res.data
       this.description = res.data['description']
